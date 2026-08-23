@@ -870,4 +870,191 @@ const items = [
     image: "images/dm-42.jpg",
     link: "https://cat-uxo.com/explosive-hazards/fuzes/dm-42-et-fuze"
     },
+
+    {    
+    id: "M65A1",
+    name: "M65A1 Fuze",
+    cat: "Fuze",
+    subcat: "PTTF",
+    country: "United States",
+    diam: 59,
+    image: "images/m65a1.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/fuzes/m65a1-fuze"
+    },
+
+    {    
+    id: "M592",
+    name: "M592 Fuze",
+    cat: "Fuze",
+    subcat: "Mechanical Time",
+    country: "United States",
+    diam: 60,
+    image: "images/m592.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/fuzes/m592-fuze"
+    },
+
+    {    
+    id: "No 117",
+    name: "No 117 Fuze",
+    cat: "Fuze",
+    subcat: "Point Detonating",
+    country: "United Kingdom",
+    diam: 60,
+    image: "images/no-117.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/fuzes/no-117-fuze"
+    },
+
+    {    
+    id: "No 390",
+    name: "No 390 Fuze",
+    cat: "Fuze",
+    subcat: "PTTF",
+    country: "United Kingdom",
+    diam: 60,
+    image: "images/no-390.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/fuzes/no-390-fuze"
+    },
+
+    {    
+    id: "DM-33",
+    name: "DM-33 Fuze",
+    cat: "Fuze",
+    subcat: "Mechanical Time",
+    country: "Germany",
+    diam: 62,
+    image: "images/dm-33.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/fuzes/dm-33-fuze"
+    },
+
+    {    
+    id: "M1P",
+    name: "M1P Fuze",
+    cat: "Fuze",
+    subcat: "Proximity",
+    country: "Isreal",
+    diam: 62,
+    image: "images/m1p.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/fuzes/m1p-fuze"
+    },
+
+    {    
+    id: "M577",
+    name: "M577 Fuze",
+    cat: "Fuze",
+    subcat: "Mechanical Time",
+    country: "United States",
+    diam: 62,
+    image: "images/m577.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/fuzes/m577-fuze"
+    },
+
+    {    
+    id: "M732",
+    name: "M732 Fuze",
+    cat: "Fuze",
+    subcat: "Proximity",
+    country: "United States",
+    diam: 62,
+    image: "images/m732.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/fuzes/m732-fuze"
+    },
+
+    {    
+    id: "PTAB-1M",
+    name: "PTAB-1M Submunition",
+    cat: "Submunition",
+    subcat: "HEAT",
+    country: "Russia",
+    diam: 42,
+    image: "images/ptab-1m.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/submunitions/ptab-1m-submunition"
+    },
+
+    {    
+    id: "PTAB-2.5KO",
+    name: "PTAB-2.5KO Submunition",
+    cat: "Submunition",
+    subcat: "HEAT",
+    country: "Russia",
+    diam: 59,
+    image: "images/ptab-25ko.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/submunitions/ptab-25ko-submunition"
+    },
+
+    {    
+    id: "BLU-97",
+    name: "BLU-97 Submunition",
+    cat: "Submunition",
+    subcat: "HEAT",
+    country: "United States",
+    diam: 64,
+    image: "images/blu-97.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/submunitions/blu-97-submunition"
+    },
+
+    {    
+    id: "BL-775 Mk 1",
+    name: "BL-755 Mk 1 Submunition",
+    cat: "Submunition",
+    subcat: "HEAT",
+    country: "United Kingdom",
+    diam: 64,
+    image: "images/bl-775-mk1.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/submunitions/bl-755-mk1-submunition"
+    },
+
+    {    
+    id: "BLU-59",
+    name: "BLU-59 Submunition",
+    cat: "Submunition",
+    subcat: "Fragmentation",
+    country: "United States",
+    diam: 64,
+    image: "images/blu-59.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/submunitions/blu-59-submunition"
+    },
+
+    {    
+    id: "ProsAB",
+    name: "ProsAB Submunition",
+    cat: "Submunition",
+    subcat: "Fragmentation",
+    country: "Russia",
+    diam: 64,
+    image: "images/prosab.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/submunitions/prosab-submunition"
+    },
+
+    {    
+    id: "KO-7",
+    name: "57mm KO-7 Rocket",
+    cat: "Rocket",
+    subcat: "HEAT",
+    country: "Bulgaria",
+    diam: 57,
+    image: "images/ko-7.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/rockets/57mm-ko-7v-rocket"
+    },
+
+    {    
+    id: "S-25-OPU",
+    name: "266mm S-25-OPU Rocket",
+    cat: "Rocket",
+    subcat: "HE",
+    country: "Russia",
+    diam: 266,
+    image: "images/s-25-opu.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/rockets/266mm-s-25-opu-rocket"
+    },
+
+    {    
+    id: "PG-29",
+    name: "105mm PG-29 Rocket",
+    cat: "Rocket",
+    subcat: "HE",
+    country: "Russia",
+    diam: 105,
+    image: "images/s-25-opu.jpg",
+    link: "https://cat-uxo.com/explosive-hazards/rockets/105mm-pg-29-rocket"
+    },
 ];
