@@ -710,7 +710,9 @@ function buildShareText(won) {
         "\n\n" +
         rows +
         "\n\n" +
-        "Category • Subcategory • Country • Diameter"
+        "Category • Subcategory • Country • Diameter" +
+        "\n\n" +
+        "Play at: https://eod-ordle.netlify.app"
     );
 }
 
