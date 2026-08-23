@@ -266,13 +266,13 @@ const items = [
     },
 
     {    
-    id: "1000bmc",
+    id: "1000lbmc",
     name: "1000lb MC Aircraft Bomb",
     cat: "Bomb",
     subcat: "HE",
     country: "United Kingdom",
     diam: 450,
-    image: "images/1000bmc.jpg",
+    image: "images/1000lbmc.jpg",
     link: "https://cat-uxo.com/explosive-hazards/aircraft-bombs/1000lb-mc-aircraft-bomb"
     },
 
