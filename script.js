@@ -1,9 +1,20 @@
+const DAILY_START_DATE =
+    Date.UTC(2026, 7, 24);
 
-const randomIndex =
-    Math.floor(Math.random() * items.length);
+const DAILY_SEED = 47381;
+
+const dailyNumber =
+    getDailyNumber();
+
+const gameMode =
+    new URLSearchParams(window.location.search)
+        .get("mode") || "daily";
+
 
 const item =
-    items[randomIndex];
+    gameMode === "random"
+        ? getRandomItem()
+        : getDailyItem();
 
 const countryRegions = {
     "United States": "North America",
@@ -117,6 +128,30 @@ const attempts =
 const feedback =
     document.getElementById("feedback");
 
+const shuffleButton =
+    document.getElementById("shuffleButton");
+
+const modeLabel =
+    document.getElementById("modeLabel");
+
+    
+if (gameMode === "random") {
+
+    modeLabel.textContent =
+        "Random ORDle";
+
+    shuffleButton.textContent =
+        "← TODAY'S ORDLE";
+
+} else {
+
+    modeLabel.textContent =
+        "Today's ORDle";
+
+    shuffleButton.textContent =
+        "↻ RANDOM ORDLE";
+}
+
 populateDropdown(
     catInput,
     categories
@@ -166,6 +201,24 @@ diamInput.addEventListener(
     }
 );
 
+shuffleButton.addEventListener(
+    "click",
+    function() {
+
+        if (gameMode === "random") {
+
+            window.location.href =
+                window.location.pathname;
+
+        } else {
+
+            window.location.href =
+                window.location.pathname +
+                "?mode=random&t=" +
+                Date.now();
+        }
+    }
+);
 
 function makeGuess() {
 
@@ -597,6 +650,36 @@ function endGame(won) {
     );
     
     feedback.prepend(message);
+
+    if (gameMode === "random") {
+
+        const anotherButton =
+            document.createElement("button");
+
+        anotherButton.textContent =
+            "↻ PLAY ANOTHER";
+
+        anotherButton.classList.add(
+            "another-button"
+        );
+
+
+        anotherButton.addEventListener(
+            "click",
+            function() {
+
+                window.location.href =
+                    window.location.pathname +
+                    "?mode=random&t=" +
+                    Date.now();
+            }
+        );
+
+
+        message.appendChild(
+            anotherButton
+        );
+    }
 }
 
 function updateBlur() {
@@ -705,8 +788,24 @@ function buildShareText(won) {
             : "X/6";
 
 
+    let title;
+
+    if (gameMode === "random") {
+
+        title =
+            "ORDle Random " + score;
+
+    } else {
+
+        title =
+            "ORDle #" +
+            dailyNumber +
+            " " +
+            score;
+    }
+
     return (
-        "ORDle " + score +
+        title +
         "\n\n" +
         rows +
         "\n\n" +
@@ -814,4 +913,130 @@ function populateCountryDropdownByRegion() {
         countryInput.appendChild(group);
 
     });
+}
+
+function seededRandom(seed) {
+
+    let value =
+        Math.sin(seed) * 10000;
+
+    return value - Math.floor(value);
+}
+
+function getShuffledItems(seed) {
+
+    const shuffled =
+        [...items];
+
+
+    for (
+        let i = shuffled.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const randomValue =
+            seededRandom(seed + i);
+
+        const j =
+            Math.floor(
+                randomValue * (i + 1)
+            );
+
+
+        [
+            shuffled[i],
+            shuffled[j]
+        ] = [
+            shuffled[j],
+            shuffled[i]
+        ];
+    }
+
+
+    return shuffled;
+}
+
+function getDailyItem() {
+
+    const today =
+        new Date();
+
+
+    const todayUTC =
+        Date.UTC(
+            today.getUTCFullYear(),
+            today.getUTCMonth(),
+            today.getUTCDate()
+        );
+
+
+    const millisecondsPerDay =
+        1000 * 60 * 60 * 24;
+
+
+    const daysSinceStart =
+        Math.floor(
+            (todayUTC - DAILY_START_DATE) /
+            millisecondsPerDay
+        );
+
+
+    const cycleNumber =
+        Math.floor(
+            daysSinceStart / items.length
+        );
+
+
+    const positionInCycle =
+        ((daysSinceStart % items.length)
+            + items.length)
+            % items.length;
+
+
+    const shuffledItems =
+        getShuffledItems(
+            DAILY_SEED + cycleNumber
+        );
+
+
+    return shuffledItems[
+        positionInCycle
+    ];
+}
+
+function getRandomItem() {
+
+    const randomIndex =
+        Math.floor(
+            Math.random() * items.length
+        );
+
+    return items[randomIndex];
+}
+
+function getDailyNumber() {
+
+    const today =
+        new Date();
+
+
+    const todayUTC =
+        Date.UTC(
+            today.getUTCFullYear(),
+            today.getUTCMonth(),
+            today.getUTCDate()
+        );
+
+
+    const millisecondsPerDay =
+        1000 * 60 * 60 * 24;
+
+
+    return (
+        Math.floor(
+            (todayUTC - DAILY_START_DATE) /
+            millisecondsPerDay
+        ) + 1
+    );
 }

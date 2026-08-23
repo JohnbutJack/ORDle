@@ -419,6 +419,44 @@ button:disabled {
     text-transform: uppercase;
 }
 
+.mode-controls {
+    margin-bottom: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+
+#modeLabel {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    text-transform: uppercase;
+
+    color: #3a3a3c;
+}
+
+
+.shuffle-button {
+    width: auto;
+    min-height: 36px;
+
+    padding: 8px 12px;
+
+    border: 1px solid #d3d6da;
+
+    background-color: #ffffff;
+    color: #3a3a3c;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
 
 /* ------------------------------
    MOBILE
@@ -505,10 +543,31 @@ button:disabled {
 
     .instructions {
         margin-top: 30px;
-    }
+    }    
 
 }
 
+@media (max-width: 600px) {
+
+    .mode-controls {
+        gap: 6px;
+    }
+
+
+    #modeLabel {
+        font-size: 11px;
+    }
+
+
+    .shuffle-button {
+        min-height: 34px;
+
+        padding: 7px 9px;
+
+        font-size: 10px;
+    }
+
+}
 
 /* Extra-small phones */
 
@@ -545,6 +604,12 @@ button:disabled {
     letter-spacing: 0.5px;
 }
 
+.another-button {
+    margin-top: 8px;
+
+    background-color: #787c7e;
+    color: #ffffff;
+}
 
 @media (hover: hover) and (pointer: fine) {
 
