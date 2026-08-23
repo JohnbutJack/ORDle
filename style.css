@@ -1,0 +1,582 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------
+   PAGE
+------------------------------ */
+
+body {
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #ffffff;
+    color: #121213;
+}
+
+
+.game {
+    width: 94%;
+    max-width: 520px;
+
+    margin: 16px auto 40px;
+    padding-bottom: 30px;
+
+    text-align: center;
+}
+
+
+/* ------------------------------
+   HEADER
+------------------------------ */
+
+.ordle-title {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    margin: 10px 0 12px;
+}
+
+.ordle-title span {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #6aaa64;
+    color: white;
+
+    font-size: 34px;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+
+    text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+
+    .ordle-title {
+        gap: 4px;
+    }
+
+    .ordle-title span {
+        width: 48px;
+        height: 48px;
+
+        font-size: 28px;
+    }
+
+}
+
+.subtitle {
+    margin-top: 8px;
+    margin-bottom: 18px;
+
+    font-size: 14px;
+    color: #6a6a6a;
+}
+
+
+/* ------------------------------
+   ORDNANCE IMAGE
+------------------------------ */
+
+.image-box {
+    width: 100%;
+    height: 280px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 1px solid #d3d6da;
+    border-radius: 4px;
+
+    background-color: #ffffff;
+}
+
+
+#ordnanceImage {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    padding: 8px;
+
+    filter: blur(30px);
+
+    transition: filter 0.5s ease;
+}
+
+
+/* ------------------------------
+   GUESS INPUTS
+------------------------------ */
+
+.guess-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+
+    margin-bottom: 10px;
+}
+
+
+.input-group {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+
+.input-group label {
+    margin-bottom: 4px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+
+    color: #3a3a3c;
+}
+
+
+select,
+input {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+
+    padding: 8px 10px;
+
+    border: 2px solid #d3d6da;
+    border-radius: 3px;
+
+    background-color: #ffffff;
+    color: #121213;
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+select:focus,
+input:focus {
+    outline: 2px solid #878a8c;
+    outline-offset: 1px;
+}
+
+
+select:disabled,
+input:disabled {
+    background-color: #f3f3f3;
+    color: #787c7e;
+}
+
+
+/* ------------------------------
+   GUESS BUTTON
+------------------------------ */
+
+button {
+    width: 100%;
+    min-height: 48px;
+
+    padding: 12px;
+
+    border: none;
+    border-radius: 4px;
+
+    background-color: #121213;
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    button:hover {
+        background-color: #3a3a3c;
+    }
+
+}
+
+
+button:disabled {
+    background-color: #a4a4a6;
+
+    cursor: default;
+}
+
+
+/* ------------------------------
+   ATTEMPTS
+------------------------------ */
+
+#attempts {
+    margin-top: 12px;
+    margin-bottom: 0;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #3a3a3c;
+}
+
+
+/* ------------------------------
+   GUESS HISTORY
+------------------------------ */
+
+#feedback {
+    margin-top: 16px;
+}
+
+
+.guess-row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 5px;
+
+    margin-bottom: 6px;
+}
+
+
+.feedback-box {
+    min-width: 0;
+    min-height: 72px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 4px;
+
+    border-radius: 2px;
+
+    background-color: #787c7e;
+    color: #ffffff;
+
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+.feedback-title {
+    margin-bottom: 5px;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+
+    opacity: 0.9;
+}
+
+
+.feedback-value {
+    max-width: 100%;
+
+    font-size: 13px;
+    line-height: 1.15;
+
+    text-align: center;
+
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+
+/* Wordle-style feedback colors */
+
+.correct {
+    background-color: #6aaa64;
+    color: #ffffff;
+}
+
+
+.close {
+    background-color: #c9b458;
+    color: #ffffff;
+}
+
+
+.incorrect {
+    background-color: #787c7e;
+    color: #ffffff;
+}
+
+
+/* ------------------------------
+   WIN / LOSS MESSAGE
+------------------------------ */
+
+.game-message {
+    margin-bottom: 24px;
+
+    padding: 18px;
+
+    border: 1px solid #d3d6da;
+    border-radius: 4px;
+
+    background-color: #ffffff;
+}
+
+
+.game-message h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    font-size: 24px;
+}
+
+
+.game-message p {
+    margin: 8px 0;
+
+    line-height: 1.4;
+}
+
+
+.game-message a {
+    color: #121213;
+
+    font-weight: 700;
+}
+
+
+/* ------------------------------
+   HOW TO PLAY
+------------------------------ */
+
+.instructions {
+    margin-top: 36px;
+
+    border-top: 1px solid #d3d6da;
+
+    text-align: left;
+}
+
+
+.instructions summary {
+    padding: 18px 0;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    text-align: center;
+
+    cursor: pointer;
+}
+
+
+.instructions-content {
+    padding-bottom: 16px;
+}
+
+
+.instructions-content p {
+    margin: 10px 0;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+.example {
+    display: inline-block;
+
+    padding: 4px 8px;
+
+    border-radius: 2px;
+
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+/* ------------------------------
+   MOBILE
+------------------------------ */
+
+@media (max-width: 600px) {
+
+    .game {
+        width: 96%;
+
+        margin-top: 8px;
+    }
+
+
+    h1 {
+        font-size: 32px;
+        letter-spacing: 2px;
+    }
+
+
+    .subtitle {
+        margin-bottom: 14px;
+
+        font-size: 13px;
+    }
+
+
+    .image-box {
+        height: 240px;
+
+        margin-bottom: 14px;
+    }
+
+
+    .guess-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 7px;
+    }
+
+
+    select,
+    input {
+        min-height: 46px;
+
+        font-size: 16px;
+    }
+
+
+    .guess-row {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 5px;
+
+        margin-bottom: 8px;
+    }
+
+
+    .feedback-box {
+        min-height: 64px;
+
+        padding: 6px;
+    }
+
+
+    .feedback-title {
+        font-size: 9px;
+    }
+
+
+    .feedback-value {
+        font-size: 12px;
+    }
+
+
+    .game-message {
+        margin-bottom: 20px;
+
+        padding: 16px;
+    }
+
+
+    .instructions {
+        margin-top: 30px;
+    }
+
+}
+
+
+/* Extra-small phones */
+
+@media (max-width: 400px) {
+
+    .image-box {
+        height: 220px;
+    }
+
+
+    h1 {
+        font-size: 30px;
+    }
+
+
+    .input-group label {
+        font-size: 10px;
+    }
+
+
+    .feedback-value {
+        font-size: 11px;
+    }
+
+}
+
+.share-button {
+    margin-top: 16px;
+
+    background-color: #6aaa64;
+    color: white;
+
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .share-button:hover {
+        background-color: #5a9955;
+    }
+
+}
+
+@keyframes tileFlip {
+    0% {
+        transform: rotateX(0deg);
+    }
+
+    50% {
+        transform: rotateX(90deg);
+    }
+
+    100% {
+        transform: rotateX(0deg);
+    }
+}
+
+
+.feedback-box.flip {
+    animation: tileFlip 0.8s ease;
+}
+
+.guess-row {
+    perspective: 600px;
+}
+
+.feedback-box {
+    transform-style: preserve-3d;
+}

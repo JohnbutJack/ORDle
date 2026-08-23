@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ORDle</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game">
+
+        <div class="ordle-title" aria-label="ORDle">
+            <span>O</span>
+            <span>R</span>
+            <span>D</span>
+            <span>l</span>
+            <span>e</span>
+        </div>
+
+        <p class="subtitle">
+            Identify the ordnance item
+        </p>
+
+        <div class="image-box">
+            <img
+                id="ordnanceImage"
+                src=""
+                alt="Mystery ordnance item"
+            >
+        </div>
+
+        <div class="guess-grid">
+
+            <div class="input-group">
+                <label for="catInput">Category</label>
+
+                <select id="catInput">
+                    <option value="">
+                        Choose category
+                    </option>
+                </select>
+            </div>
+
+
+            <div class="input-group">
+                <label for="subcatInput">Subcategory</label>
+
+                <select id="subcatInput" disabled>
+                    <option value="">
+                        Choose category first
+                    </option>
+                </select>
+            </div>
+
+
+            <div class="input-group">
+                <label for="countryInput">Country of Origin</label>
+
+                <select id="countryInput">
+                    <option value="">Choose country</option>
+                </select>
+            </div>
+
+
+            <div class="input-group">
+                <label for="diamInput">Diameter (mm)</label>
+
+                <input
+                    id="diamInput"
+                    type="number"
+                    placeholder="e.g. 155"
+                    min="0"
+                >
+            </div>
+
+        </div>
+
+
+        <button id="guessButton">
+            GUESS
+        </button>
+
+
+        <p id="attempts">
+            Attempts remaining: 6
+        </p>
+
+
+        <div id="feedback"></div>
+
+        <details class="instructions">
+
+            <summary>
+                How to Play
+            </summary>
+
+            <div class="instructions-content">
+
+                <p>
+                    ID the ordnance item shown in the image.
+                    You have 6 attempts.
+                </p>
+
+                <p>
+                    The image becomes less blurry after each incorrect guess.
+                </p>
+
+                <p>
+                    For each attempt, guess the item's category,
+                    subcategory, country of origin, and diameter (in mm).
+                </p>
+
+                <p>
+                    <span class="example correct">Green</span>
+                    means your guess is correct. For diameter, guesses within +/- 7.5% of the real answer count as correct.
+                </p>
+
+                <p>
+                    <span class="example close">Yellow</span>
+                    means your guess is close. For country, this means
+                    the country is in the same geographic region.
+                    For diameter, this means your guess is within 25%
+                    of the correct diameter.
+                </p>
+
+                <p>
+                    <span class="example incorrect">Grey</span>
+                    means your guess is incorrect.
+                </p>
+
+                <p>
+                    For diameter,
+                    <strong>↑</strong> means guess higher and
+                    <strong>↓</strong> means guess lower.
+                    Two arrows mean your guess is more than 25% away.
+                </p>
+
+            </div>
+
+        </details>
+
+    </main>
+
+
+    <script src="items.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
