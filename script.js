@@ -959,15 +959,14 @@ function getShuffledItems(seed) {
 
 function getDailyItem() {
 
-    const today =
-        new Date();
-
+    const eglinDate =
+        getEglinDateParts();
 
     const todayUTC =
         Date.UTC(
-            eglinNow.getUTCFullYear(),
-            eglinNow.getUTCMonth(),
-            eglinNow.getUTCDate()
+            eglinDate.year,
+            eglinDate.month - 1,
+            eglinDate.day
         );
 
 
@@ -1017,17 +1016,15 @@ function getRandomItem() {
 
 function getDailyNumber() {
 
-    const today =
-        new Date();
-
+    const eglinDate =
+        getEglinDateParts();
 
     const todayUTC =
         Date.UTC(
-            eglinNow.getUTCFullYear(),
-            eglinNow.getUTCMonth(),
-            eglinNow.getUTCDate()
+            eglinDate.year,
+            eglinDate.month - 1,
+            eglinDate.day
         );
-
 
     const millisecondsPerDay =
         1000 * 60 * 60 * 24;
@@ -1041,7 +1038,35 @@ function getDailyNumber() {
     );
 }
 
-const eglinNow =
-    new Date(
-        Date.now() - 5 * 60 * 60 * 1000
-    );
+function getEglinDateParts() {
+
+    const parts =
+        new Intl.DateTimeFormat(
+            "en-US",
+            {
+                timeZone: "America/Chicago",
+                year: "numeric",
+                month: "numeric",
+                day: "numeric"
+            }
+        ).formatToParts(new Date());
+
+
+    const values = {};
+
+    parts.forEach(function(part) {
+
+        if (
+            part.type === "year" ||
+            part.type === "month" ||
+            part.type === "day"
+        ) {
+            values[part.type] =
+                Number(part.value);
+        }
+
+    });
+
+
+    return values;
+}
