@@ -316,7 +316,7 @@ const items = [
     subcat: "HE/Frag",
     country: "United Kingdom",
     diam: 38,
-    image: "images/n013.jpg",
+    image: "images/no13.jpg",
     link: "https://cat-uxo.com/explosive-hazards/grenades/no-13-hand-grenade"
     },
 
