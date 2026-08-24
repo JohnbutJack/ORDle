@@ -965,9 +965,9 @@ function getDailyItem() {
 
     const todayUTC =
         Date.UTC(
-            today.getUTCFullYear(),
-            today.getUTCMonth(),
-            today.getUTCDate()
+            eglinNow.getUTCFullYear(),
+            eglinNow.getUTCMonth(),
+            eglinNow.getUTCDate()
         );
 
 
@@ -1023,9 +1023,9 @@ function getDailyNumber() {
 
     const todayUTC =
         Date.UTC(
-            today.getUTCFullYear(),
-            today.getUTCMonth(),
-            today.getUTCDate()
+            eglinNow.getUTCFullYear(),
+            eglinNow.getUTCMonth(),
+            eglinNow.getUTCDate()
         );
 
 
@@ -1040,3 +1040,8 @@ function getDailyNumber() {
         ) + 1
     );
 }
+
+const eglinNow =
+    new Date(
+        Date.now() - 5 * 60 * 60 * 1000
+    );
